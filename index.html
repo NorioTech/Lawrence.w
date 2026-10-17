@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="Lawrence Walker — digital product builder creating websites, apps, and AI-powered digital experiences.">
+  <title>Lawrence Walker — Digital Product Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#f7f8fc;--surface:#fff;--ink:#111827;--muted:#667085;--line:#e7eaf1;--blue:#315efb;--blue2:#7c3aed;--mint:#baf4de;--radius:24px;--shadow:0 22px 70px rgba(20,30,70,.09)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:sticky;top:0;z-index:20;background:rgba(247,248,252,.84);backdrop-filter:blur(18px);border-bottom:1px solid rgba(231,234,241,.8)}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.04em}.brand-mark{width:37px;height:37px;border-radius:12px;background:linear-gradient(135deg,#315efb,#8b5cf6);display:grid;place-items:center;color:white;font-family:Manrope,sans-serif;font-weight:800}.navlinks{display:flex;align-items:center;gap:27px;font-size:13px;color:#555e70}.navlinks a:hover,.navlinks a.active{color:var(--blue)}.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 18px;border-radius:13px;background:var(--ink);color:white;font-size:13px;font-weight:700;border:1px solid var(--ink);transition:transform .2s,box-shadow .2s}.nav-cta:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px #11182720}.btn.secondary{background:white;color:var(--ink);border-color:var(--line)}.menu-toggle{display:none;border:1px solid var(--line);background:white;border-radius:11px;padding:9px 12px;font-size:20px}
+    section{padding:100px 0}.hero{padding:72px 0 94px;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:55px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#42506a;background:#fff;border:1px solid var(--line);padding:8px 12px;border-radius:99px;font-size:12px;font-weight:700}.dot{width:8px;height:8px;background:#22c58b;border-radius:50%;box-shadow:0 0 0 4px #22c58b20}.hero h1{font-family:Manrope,sans-serif;font-size:clamp(44px,6.1vw,76px);line-height:1.04;letter-spacing:-.065em;margin:24px 0 20px;max-width:680px}.gradient-text{background:linear-gradient(105deg,#315efb 8%,#7c3aed 58%,#db4e9c);-webkit-background-clip:text;background-clip:text;color:transparent}.hero-copy{font-size:17px;color:var(--muted);max-width:530px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:29px}.hero-note{font-size:12px;color:#7b8495;margin-top:25px}.visual-stage{position:relative;min-height:470px;display:grid;place-items:center}.orb{position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle at 35% 25%,#dce7ff 0,#d8d4ff 35%,#f5d9f0 65%,#f7f8fc 76%);filter:blur(1px);animation:float 7s ease-in-out infinite}.profile-card{position:relative;width:min(330px,82%);padding:14px;background:#ffffffd9;border:1px solid #fff;border-radius:27px;box-shadow:var(--shadow);transform:rotate(-3deg);animation:rise .8s ease both}
+    /* Opening reveal: portrait glides right while the Norio identity emerges from behind it to the left. */
+    .visual-stage{isolation:isolate}
+    .profile-card{z-index:3;will-change:transform;animation:portraitReveal 1.45s cubic-bezier(.2,.75,.2,1) .25s both}
+    .norio-hero-reveal{position:absolute;z-index:2;left:0;top:50%;width:min(310px,60%);transform:translate(34%, -50%);opacity:0;display:flex;flex-direction:column;align-items:flex-start;gap:11px;padding:20px 12px 20px 0;animation:norioReveal 1.25s cubic-bezier(.2,.75,.2,1) .42s both;pointer-events:none;isolation:isolate}
+    .norio-hero-kicker{font-size:9px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#64748b;white-space:nowrap}
+    .norio-hero-logo{position:relative;z-index:2;width:100%;max-width:300px;height:100px;object-fit:contain;object-position:left center;transform-origin:48% 50%;filter:drop-shadow(0 0 20px rgba(124,58,237,.65));animation:norioLogoSpinBurst 1.35s cubic-bezier(.16,.85,.25,1.15) .72s both}
+    .norio-hero-logo-fallback{display:none;position:relative;z-index:2;font-family:Manrope,sans-serif;font-size:clamp(34px,5vw,54px);font-weight:900;letter-spacing:.14em;line-height:1;background:linear-gradient(100deg,#315efb,#8b5cf6,#db4e9c);-webkit-background-clip:text;background-clip:text;color:transparent;animation:norioLogoSpinBurst 1.35s cubic-bezier(.16,.85,.25,1.15) .72s both}
+    .norio-hero-coming{font-family:Manrope,sans-serif;font-size:clamp(21px,2.7vw,30px);line-height:1.1;font-weight:900;letter-spacing:.055em;color:#111827;white-space:nowrap;text-shadow:0 4px 18px rgba(124,58,237,.12)}
+    .norio-hero-coming strong{color:#7047e8}
+    .norio-hero-caption{font-size:12px;line-height:1.45;color:#667085;max-width:240px}
+    @keyframes portraitReveal{0%{opacity:0;transform:translateX(0) rotate(-3deg)}38%{opacity:1;transform:translateX(0) rotate(-3deg)}100%{opacity:1;transform:translateX(66px) rotate(-2deg)}}
+    @keyframes norioReveal{0%{opacity:0;transform:translate(34%,-50%) scale(.94);filter:blur(7px)}30%{opacity:.2}100%{opacity:1;transform:translate(0,-50%) scale(1);filter:blur(0)}}
+.profile-photo{height:320px;width:100%;border-radius:19px;object-fit:cover;display:block;background:linear-gradient(135deg,#dbeafe,#e9d5ff);color:#53627b}.photo-fallback{display:none;height:320px;border-radius:19px;background:linear-gradient(135deg,#dbeafe,#e9d5ff);align-items:center;justify-content:center;text-align:center;color:#475569;padding:24px}.profile-meta{display:flex;justify-content:space-between;align-items:center;padding:14px 4px 4px;gap:12px}.profile-meta strong{display:block;font-size:14px}.profile-meta small{color:var(--muted);font-size:11px}.verified{font-size:11px;font-weight:700;color:#315efb;background:#eef2ff;padding:6px 9px;border-radius:99px}.float-card{position:absolute;background:white;border:1px solid var(--line);border-radius:17px;padding:13px 16px;box-shadow:var(--shadow);font-size:12px;animation:float 6s ease-in-out infinite}.float-card strong{display:block;font-size:14px}.float-one{left:0;top:85px}.float-two{right:-2px;bottom:73px;animation-delay:-2s}.tiny-icon{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:9px;background:#eef2ff;color:var(--blue);margin-right:7px}.section-head{max-width:680px;margin-bottom:42px}.kicker{text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:800;color:var(--blue)}h2{font-family:Manrope,sans-serif;font-size:clamp(32px,4vw,48px);letter-spacing:-.05em;line-height:1.12;margin:12px 0 16px} .section-head p,.muted{color:var(--muted)}.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}.about-panel{background:#111827;color:white;border-radius:var(--radius);padding:30px;min-height:285px;position:relative;overflow:hidden}.about-panel:after{content:'';position:absolute;width:180px;height:180px;right:-50px;bottom:-75px;border-radius:50%;background:linear-gradient(135deg,#315efb,#a855f7);filter:blur(2px);opacity:.85}.about-panel h3{font-family:Manrope,sans-serif;font-size:25px;line-height:1.2;letter-spacing:-.04em;position:relative;z-index:1}.about-panel p{color:#c7ceda;font-size:14px;position:relative;z-index:1}.about-content p{color:var(--muted);margin-top:0}.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:25px}.fact{border:1px solid var(--line);background:white;border-radius:16px;padding:17px}.fact strong{display:block;font-size:14px}.fact span{font-size:12px;color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.service-card,.project-card,.skill-card{background:white;border:1px solid var(--line);border-radius:20px;padding:24px;transition:transform .25s,box-shadow .25s}.service-card:hover,.project-card:hover,.skill-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.service-icon{width:45px;height:45px;border-radius:14px;background:#eef2ff;display:grid;place-items:center;font-size:20px;margin-bottom:24px}.service-card h3,.project-card h3{font-family:Manrope,sans-serif;letter-spacing:-.03em;margin:0 0 9px;font-size:18px}.service-card p,.project-card p{color:var(--muted);font-size:13px;margin:0}.tag-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}.tag{font-size:10px;color:#4f5d76;background:#f2f4f8;border-radius:99px;padding:5px 8px}.project-card{padding:0;overflow:hidden}.project-image{display:block;width:100%;height:180px;object-fit:cover;background:#111827;transform:scale(1.001);transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .5s ease;filter:saturate(.92)}.norio-project-visual{height:180px;position:relative;overflow:hidden;background:#070812}.norio-project-visual .project-image{height:100%;width:100%}.norio-project-logo{position:absolute;left:50%;top:50%;width:min(62%,260px);max-height:76px;object-fit:contain;transform:translate(-50%,-50%);padding:10px 14px;border:1px solid rgba(255,255,255,.22);border-radius:14px;background:rgba(5,7,20,.48);backdrop-filter:blur(10px);filter:drop-shadow(0 0 18px rgba(129,93,255,.65));animation:teaserFloat 5s ease-in-out infinite;z-index:1}.norio-project-logo-fallback{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:30px;font-weight:950;letter-spacing:.18em;color:#fff;text-shadow:0 0 18px #8b5cf6,0 0 32px #22d3ee;z-index:1}.project-card{position:relative;isolation:isolate}.project-card:before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.32) 42%,transparent 58%);transform:translateX(-130%);transition:transform .8s ease}.project-card:hover:before{transform:translateX(130%)}.project-card:hover .project-image{transform:scale(1.055);filter:saturate(1.08)}.project-image-label{position:relative;z-index:3}.project-image-label{display:block;padding:8px 22px 0;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#6b7280;font-weight:800}.project-card .project-info{padding-top:12px}.project-art{height:180px;padding:22px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#e7edff,#f2e8ff)}.project-art.dark{background:linear-gradient(135deg,#121a32,#303b65)}.project-art.green{background:linear-gradient(135deg,#d8f9ec,#e8f0ff)}.mock-window{width:90%;height:120px;background:white;border:1px solid #ffffffaa;border-radius:12px;box-shadow:0 15px 30px #10182818;padding:12px}.mock-top{display:flex;gap:4px;margin-bottom:12px}.mock-top i{width:6px;height:6px;border-radius:50%;background:#c7ccda}.mock-line{height:7px;background:#e6eaf3;border-radius:8px;margin:7px 0;width:80%}.mock-line.short{width:48%}.mock-blocks{display:flex;gap:7px;margin-top:12px}.mock-blocks span{height:34px;flex:1;border-radius:6px;background:#e8edff}.mock-blocks span:nth-child(2){background:#eee3ff}.mock-blocks span:nth-child(3){background:#d8f5e9}.project-info{padding:22px}.project-status{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#667085;font-weight:800}.project-info h3{margin-top:7px}.project-link{display:inline-flex;margin-top:17px;font-size:12px;font-weight:700;color:var(--blue)}.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.skill-card{padding:18px}.skill-card strong{display:block;font-size:13px;margin-bottom:5px}.skill-card span{font-size:11px;color:var(--muted)}.norio-banner{background:#111827;color:white;border-radius:30px;padding:48px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;position:relative;overflow:hidden}.norio-banner:after{content:'';position:absolute;right:12%;top:-130px;width:320px;height:320px;border-radius:50%;background:linear-gradient(135deg,#315efb,#a855f7);filter:blur(70px);opacity:.5}.norio-banner>*{position:relative;z-index:1}.norio-banner h2{font-size:clamp(30px,4vw,44px);margin-top:10px}.norio-banner p{max-width:610px;color:#c6ccda}.norio-banner .btn{background:white;color:#111827;border-color:white;white-space:nowrap}.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px}.contact-list{display:grid;gap:12px;margin-top:28px}.contact-item{display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:15px;background:white;padding:14px}.contact-item .service-icon{margin:0;width:40px;height:40px;flex-shrink:0}.contact-item strong{display:block;font-size:13px}.contact-item span{font-size:12px;color:var(--muted);overflow-wrap:anywhere}.contact-form{background:linear-gradient(145deg,#fff 0%,#fbfcff 100%);border:1px solid #e4e8f2;border-radius:26px;padding:30px;box-shadow:0 24px 70px rgba(24,39,75,.09);position:relative;overflow:hidden}.contact-form:before{content:"";position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,#315efb,#8b5cf6,#22c5e5)}.form-heading{display:flex;align-items:flex-start;gap:14px;margin-bottom:25px}.form-heading-icon{display:grid;place-items:center;width:48px;height:48px;flex:0 0 48px;border-radius:16px;background:linear-gradient(135deg,#315efb,#8b5cf6);color:#fff;box-shadow:0 9px 22px #315efb35}.form-heading h3{font-family:Manrope,sans-serif;font-size:23px;letter-spacing:-.04em;line-height:1.15;margin:1px 0 7px}.form-heading p{font-size:12px;color:var(--muted);margin:0;line-height:1.55}.field label{font-size:12px;letter-spacing:.01em}.field input,.field textarea{transition:border-color .2s,box-shadow .2s,background .2s}.field input:focus,.field textarea:focus{background:#fff}.contact-form .btn{display:flex;align-items:center;justify-content:center;gap:11px;min-height:54px;border:0;border-radius:14px;background:linear-gradient(105deg,#315efb,#6847e8 60%,#8255e8);color:#fff;font-weight:800;box-shadow:0 12px 24px #315efb30;transition:transform .2s,box-shadow .2s,filter .2s}.contact-form .btn:hover{transform:translateY(-2px);box-shadow:0 16px 30px #315efb40;filter:saturate(1.12)}.contact-form .btn:disabled{opacity:.7;cursor:wait;transform:none}.send-icon{width:19px;height:19px;transition:transform .2s}.contact-form .btn:hover .send-icon{transform:translate(3px,-2px)}.form-note{display:flex;align-items:flex-start;gap:8px;font-size:11px;line-height:1.6;color:var(--muted);margin:14px 0 0}.form-note:before{content:"✓";display:grid;place-items:center;flex:0 0 17px;height:17px;border-radius:50%;background:#e8f8ef;color:#16804a;font-weight:900;font-size:10px;margin-top:1px}.field{margin-bottom:16px}.field label{display:block;font-size:12px;font-weight:700;margin-bottom:7px}.field input,.field textarea{width:100%;padding:13px 14px;border:1px solid #dfe3eb;border-radius:12px;outline:none;background:#fcfcfe}.field input:focus,.field textarea:focus{border-color:#7c92ff;box-shadow:0 0 0 3px #315efb15}.field textarea{resize:vertical;min-height:130px}.contact-form .btn{width:100%;cursor:pointer}.form-note{font-size:11px;color:var(--muted);margin-top:12px}.socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}.socials a{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;color:#354057;border:1px solid var(--line);background:white;padding:10px 13px;border-radius:12px;text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s,color .2s}.socials a:hover{transform:translateY(-3px);border-color:#c8d2ff;box-shadow:0 9px 22px rgba(49,94,251,.1);color:#315efb}.social-icon{width:19px;height:19px;display:block;flex:0 0 19px}.social-icon svg{width:100%;height:100%;display:block;fill:currentColor}.socials .instagram:hover{color:#d9468d}.socials .facebook:hover{color:#1877f2}.socials .github:hover,.socials .x-social:hover{color:#111827}.footer{padding:28px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}@keyframes rise{from{opacity:0;transform:translateY(22px) rotate(-3deg)}to{opacity:1;transform:translateY(0) rotate(-3deg)}}
+
+    /* Service promotion and Norio launch styling */
+    .service-promo{padding:0 0 24px}
+    .promo-panel{display:flex;align-items:center;justify-content:space-between;gap:26px;padding:28px 32px;border:1px solid #dfe5ff;border-radius:24px;background:radial-gradient(circle at 100% 0%,#e7eaff 0,transparent 42%),linear-gradient(110deg,#fff,#f7f8ff);box-shadow:0 18px 50px rgba(49,94,251,.07)}
+    .promo-copy{max-width:730px}.promo-label{font-size:11px;text-transform:uppercase;letter-spacing:.16em;font-weight:800;color:#315efb}.promo-panel h2{font-size:clamp(24px,3vw,34px);margin:7px 0 8px}.promo-panel p{margin:0;color:var(--muted);font-size:14px}.promo-panel .btn{white-space:nowrap;flex-shrink:0}
+    /* Norio is presented as a launch campaign advert, not a regular info card */
+    .norio-banner{min-height:470px;background:#070812;border:1px solid rgba(135,105,255,.38);box-shadow:0 30px 90px rgba(26,22,68,.2);padding:clamp(26px,4vw,54px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr);align-items:center;gap:28px;text-align:left;border-radius:30px}
+    .norio-banner:before{content:'';position:absolute;inset:-60%;background:conic-gradient(from 0deg,transparent,rgba(66,217,255,.15),transparent,rgba(214,74,255,.2),transparent);animation:norioSpin 22s linear infinite;pointer-events:none}
+    .norio-banner:after{right:-4%;top:-30%;width:440px;height:440px;background:linear-gradient(135deg,#31d8ff,#8055ff,#ff59ce);opacity:.48;filter:blur(85px)}
+    .norio-content{position:relative;z-index:2;max-width:780px}.norio-visual-wrap{position:relative;z-index:2;min-width:0;perspective:1000px}.norio-slideshow{position:relative;width:100%;aspect-ratio:1.12/1;min-height:300px;overflow:hidden;border:1px solid rgba(151,132,255,.42);border-radius:24px;background:#080a18;box-shadow:0 24px 65px rgba(35,25,100,.42);transform:rotateY(-4deg);transition:transform .5s ease,box-shadow .5s ease;isolation:isolate}.norio-visual-wrap:hover .norio-slideshow{transform:rotateY(0) translateY(-4px);box-shadow:0 30px 80px rgba(35,25,100,.58)}.norio-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);filter:saturate(.88) brightness(.72);transition:opacity 1.1s ease,transform 6s ease,filter 1.1s ease}.norio-slide.active{opacity:1;transform:scale(1);filter:saturate(1.08) brightness(.84)}.norio-slideshow:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(4,6,18,.03),rgba(4,6,18,.1) 42%,rgba(4,6,18,.78)),linear-gradient(120deg,rgba(49,216,255,.12),transparent 45%,rgba(255,89,206,.16));pointer-events:none}.norio-slide-overlay{position:absolute;z-index:2;inset:auto 18px 20px;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;text-shadow:0 2px 18px #000}.norio-slide-caption{font-size:clamp(17px,2vw,23px);font-weight:800;letter-spacing:-.04em}.norio-slide-subtitle{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#d5d9f3;margin-top:5px}.norio-slide-counter{font-size:10px;letter-spacing:.14em;color:#e2e8ff;white-space:nowrap}.norio-slide-dots{display:flex;justify-content:center;gap:8px;margin-top:15px}.norio-slide-dot{width:7px;height:7px;padding:0;border:0;border-radius:99px;background:#c6c9da;cursor:pointer;transition:width .3s,background .3s}.norio-slide-dot.active{width:24px;background:linear-gradient(90deg,#31d8ff,#a58aff,#ff75d1)}.norio-visual-note{color:#aeb7d5;font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:13px 4px 0;line-height:1.6}.norio-logo{display:block;width:min(100%,390px);max-height:150px;object-fit:contain;object-position:left center;margin:20px 0 24px;filter:drop-shadow(0 0 22px rgba(129,93,255,.55))}.norio-logo-fallback{font-size:clamp(3rem,8vw,5.2rem);font-weight:950;letter-spacing:.16em;line-height:1;margin:20px 0 24px;background:linear-gradient(100deg,#53ddff,#a58aff,#ff75d1);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .norio-fallback{display:none;font-family:Manrope,sans-serif;font-weight:800;font-size:clamp(52px,9vw,100px);letter-spacing:.13em;line-height:1.1;margin:25px 0 20px;background:linear-gradient(100deg,#3de4ff,#8c62ff 52%,#ff66d4);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:norioGradient 5s linear infinite}
+    .norio-status{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid rgba(171,140,255,.45);border-radius:99px;color:#e3d8ff;background:rgba(126,87,255,.16);font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+    .norio-banner h2{font-size:clamp(44px,8vw,86px);line-height:.98;letter-spacing:-.07em;max-width:800px;margin:0 0 20px;text-transform:uppercase}.norio-banner p{color:#c3c9dc;font-size:clamp(15px,2vw,18px);max-width:620px;margin:0 0 28px}.norio-banner .btn{background:#fff;color:#101322;border-color:#fff;padding:15px 21px;border-radius:14px;font-size:13px;position:relative;z-index:3}
+    .norio-ad-kicker{font-size:11px;font-weight:800;letter-spacing:.25em;color:#9da8c9;text-transform:uppercase}.norio-ad-line{width:76px;height:3px;border-radius:8px;background:linear-gradient(90deg,#3de4ff,#8c62ff,#ff66d4);margin:0 0 25px}.norio-ad-footer{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:28px;color:#7f89a8;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+    @keyframes norioSpin{to{transform:rotate(360deg)}}@keyframes norioGradient{to{background-position:200% center}}@keyframes teaserFloat{0%,100%{translate:0 0}50%{translate:0 -7px}}
+    @media(max-width:700px){.promo-panel{align-items:flex-start;flex-direction:column;padding:24px}.promo-panel .btn{white-space:normal}.norio-logo{object-position:left center}}
+
+    
+    .contact-options{align-self:stretch}.contact-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.contact-choice{display:flex;align-items:center;gap:12px;min-width:0;padding:15px 13px;border:1px solid #e5e9f2;border-radius:16px;background:#fff;color:#182033;text-decoration:none;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background .22s ease}.contact-choice:hover{transform:translateY(-3px);border-color:#c7d2fe;box-shadow:0 12px 28px rgba(49,94,251,.1);background:#fcfcff}.choice-icon{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border-radius:13px;background:#eef2ff;color:#315efb}.choice-icon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.choice-copy{display:flex;flex-direction:column;gap:4px;min-width:0}.choice-copy strong{font-size:13px;line-height:1.2}.choice-copy small{font-size:10px;line-height:1.35;color:#788197}.choice-arrow{margin-left:auto;align-self:flex-start;font-size:15px;color:#8791a6;transition:transform .2s,color .2s}.contact-choice:hover .choice-arrow{transform:translate(2px,-2px);color:#315efb}.choice-whatsapp .choice-icon{background:#e8f9ef;color:#159957}.choice-instagram .choice-icon{background:#fff0f6;color:#d9468d}.choice-x .choice-icon{background:#f0f1f4;color:#111827}.choice-facebook .choice-icon{background:#edf4ff;color:#1877f2}.choice-github .choice-icon{background:#f1f2f6;color:#24292f}.contact-options .form-note{margin-top:20px}.contact-options .form-note span{display:grid;place-items:center;flex:0 0 17px;height:17px;border-radius:50%;background:#e8f8ef;color:#16804a;font-weight:900;font-size:10px}
+
+    /* Refined contact and social icon system: brand-aware gradients, crisp SVGs, and restrained motion. */
+    .contact-choice{position:relative;isolation:isolate;overflow:hidden;border-color:#e5e9f3;box-shadow:0 3px 10px rgba(18,28,55,.025)}
+    .contact-choice:before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;background:linear-gradient(115deg,rgba(49,94,251,.045),rgba(139,92,246,.035));transition:opacity .25s ease}
+    .contact-choice:hover:before{opacity:1}
+    .choice-icon{position:relative;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 5px 14px rgba(30,41,59,.07);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;border:1px solid rgba(255,255,255,.9)}
+    .choice-icon:after{content:"";position:absolute;inset:-60% auto -60% -70%;width:45%;transform:rotate(25deg);background:rgba(255,255,255,.55);transition:left .45s ease}
+    .contact-choice:hover .choice-icon{transform:translateY(-1px) rotate(-3deg) scale(1.06);box-shadow:0 8px 18px rgba(30,41,59,.13)}
+    .contact-choice:hover .choice-icon:after{left:140%}
+    .choice-icon svg{position:relative;z-index:1;width:22px;height:22px;stroke-width:1.85;filter:drop-shadow(0 1px 0 rgba(255,255,255,.25))}
+    .choice-email .choice-icon{background:linear-gradient(145deg,#eaf0ff,#e8e8ff);color:#405cf5}
+    .choice-whatsapp .choice-icon{background:linear-gradient(145deg,#dcfce7,#baf7d0);color:#078b50}
+    .choice-instagram .choice-icon{background:linear-gradient(145deg,#ffe3ef,#f5ddff);color:#cf3287}
+    .choice-instagram .choice-icon svg{filter:drop-shadow(0 1px 1px rgba(217,70,141,.15))}
+    .choice-x .choice-icon{background:linear-gradient(145deg,#f4f5f7,#dfe3e9);color:#101318}
+    .choice-facebook .choice-icon{background:linear-gradient(145deg,#e2efff,#cfe1ff);color:#1769d2}
+    .choice-github .choice-icon{background:linear-gradient(145deg,#eceef3,#dce0e8);color:#202633}
+    .contact-choice:focus-visible,.socials a:focus-visible{outline:3px solid rgba(49,94,251,.4);outline-offset:3px}
+    .socials a{position:relative;overflow:hidden;border-radius:14px;padding:9px 13px;background:linear-gradient(180deg,#fff,#fbfcff);box-shadow:0 2px 7px rgba(18,28,55,.025)}
+    .social-icon{width:27px;height:27px;display:grid;place-items:center;flex:0 0 27px;padding:5px;border-radius:9px;background:#f0f2f7;color:#283244;transition:transform .22s ease,background .22s ease,color .22s ease}
+    .social-icon svg{width:100%;height:100%;fill:currentColor}
+    .socials a:hover .social-icon{transform:rotate(-5deg) scale(1.08)}
+    .socials .instagram .social-icon{background:linear-gradient(135deg,#ffe0ed,#f0dcff);color:#d63384}
+    .socials .facebook .social-icon{background:linear-gradient(135deg,#e1efff,#c9deff);color:#1877f2}
+    .socials .github .social-icon,.socials .x-social .social-icon{background:linear-gradient(135deg,#eceef3,#dce0e8);color:#151922}
+    .socials .instagram:hover{color:#d63384}.socials .facebook:hover{color:#1877f2}.socials .github:hover,.socials .x-social:hover{color:#151922}
+    @media(prefers-reduced-motion:reduce){.choice-icon,.choice-icon:after,.social-icon{transition:none!important}}
+    @media(max-width:850px){.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:38px}.hero{padding-top:55px}.visual-stage{min-height:440px}.cards{grid-template-columns:repeat(2,1fr)}.skills-grid{grid-template-columns:repeat(2,1fr)}.norio-banner{grid-template-columns:1fr;padding:35px}.norio-banner .btn{justify-self:start}.norio-visual{aspect-ratio:16/9;transform:none}.about-grid{gap:24px}}
+    @media(max-width:620px){.norio-hero-reveal{left:-2px;width:178px;top:49%;padding-right:4px;gap:8px}.norio-hero-logo{height:64px;max-width:178px}.norio-hero-kicker{font-size:7px;letter-spacing:.12em}.norio-hero-coming{font-size:16px;letter-spacing:.025em}.norio-hero-caption{font-size:9px;max-width:160px}.profile-card{animation:portraitRevealMobile 1.45s cubic-bezier(.2,.75,.2,1) .25s both}.visual-stage{overflow:visible}@keyframes portraitRevealMobile{0%{opacity:0;transform:translateX(0) rotate(-3deg)}38%{opacity:1;transform:translateX(0) rotate(-3deg)}100%{opacity:1;transform:translateX(38px) rotate(-2deg)}}.wrap{width:min(100% - 28px,1160px)}.nav{height:68px}.menu-toggle{display:block}.nav-cta{display:none}.navlinks{display:none;position:absolute;left:14px;right:14px;top:67px;background:white;border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:0}.navlinks.open{display:flex}.navlinks a{padding:12px 7px}.hero{padding:48px 0 60px}.hero h1{font-size:clamp(42px,13vw,62px)}.hero-copy{font-size:15px}.visual-stage{min-height:405px}.orb{width:290px;height:290px}.profile-card{width:260px}.profile-photo,.photo-fallback{height:275px}.float-one{left:-2px;top:60px}.float-two{right:-1px;bottom:46px}.section{padding:72px 0}section{padding:72px 0}.cards{grid-template-columns:1fr}.project-art{height:170px}.facts{gap:9px}.fact{padding:13px}.norio-banner{padding:27px}.norio-visual{aspect-ratio:16/9}.contact-form{padding:19px}.contact-choice-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:20px;width:min(1160px,calc(100% - 40px))">
+      <a class="brand" href="#home" aria-label="Lawrence Walker home"><span class="brand-mark">LW</span><span>Lawrence Walker</span></a>
+      <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+        <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#work">My Work</a><a href="#skills">Skills</a><a href="#norio">Norio</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <span class="eyebrow"><span class="dot"></span> Digital creator based in Kenya</span>
+          <h1>I turn ideas into <span class="gradient-text">digital experiences.</span></h1>
+          <p class="hero-copy">I'm Lawrence Walker — a digital product builder exploring websites, apps, AI-powered tools, and useful ideas that can become real products.</p>
+          <div class="hero-actions"><a class="btn" href="#work">Explore my work <span>↗</span></a><a class="btn secondary" href="#contact">Work with me</a></div>
+          <p class="hero-note">Independent builder · Product-minded · Always learning</p>
+        </div>
+        <div class="visual-stage reveal" aria-label="Profile portrait and creator card">
+          <div class="orb"></div>
+          <div class="float-card float-one"><span class="tiny-icon">✦</span><strong>Ideas → Products</strong><span>From concept to prototype</span></div>
+          <div class="norio-hero-reveal" aria-label="Norio coming soon">
+            <span class="norio-hero-kicker">A new digital chapter</span>
+            <img src="logo.png" alt="Norio" class="norio-hero-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="norio-hero-logo-fallback">NORIO</span>
+            <span class="norio-hero-coming">COMING <strong>SOON</strong></span>
+            <span class="norio-hero-caption">Useful digital products. One idea at a time.</span>
+          </div>
+          <div class="profile-card">
+            <img class="profile-photo" src="mepic.jfif" alt="Portrait of Lawrence Walker" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="photo-fallback">Add your portrait here<br><small>Use the exact filename requested</small></div>
+            <div class="profile-meta"><div><strong>Lawrence Walker</strong><small>Digital Product Builder</small></div><span class="verified">Creator</span></div>
+          </div>
+          <div class="float-card float-two"><span class="tiny-icon">⌘</span><strong>Building Norio</strong><span>Digital products in progress</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promotion for Lawrence's own website and digital-product services -->
+    <section class="service-promo" aria-label="Website services promotion">
+      <div class="wrap">
+        <div class="promo-panel reveal">
+          <div class="promo-copy">
+            <span class="promo-label">Have an idea? Let's build it.</span>
+            <h2>Need a website for your brand or project?</h2>
+            <p>Message me with your idea. We can discuss the goal, plan the experience, and work toward a website concept. With your permission, I can feature the finished work in my portfolio and tag your account.</p>
+          </div>
+          <a class="btn" href="https://wa.me/254748213072?text=Hello%20Lawrence%2C%20I%20would%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer">Discuss a project ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head reveal"><span class="kicker">About me</span><h2>Curiosity is where every product starts.</h2><p>I combine design thinking, AI-assisted development, and hands-on experimentation to explore how digital ideas can solve real problems.</p></div>
+        <div class="about-grid">
+          <div class="about-panel reveal"><span class="kicker" style="color:#aabaff">MY APPROACH</span><h3>Build with purpose.<br>Learn by shipping.</h3><p>I focus on clear experiences, useful features, and steady improvement—not just ideas that look good on paper.</p></div>
+          <div class="about-content reveal"><p>My work is centred on making digital experiences easier to understand and use. I experiment with website design, app concepts, databases, and AI tools while building my skills one project at a time.</p><p>I'm also developing <strong>Norio</strong>, a technology project focused on exploring practical digital tools. Projects shown here may be prototypes or works in progress, and their status is labelled accordingly.</p>
+            <div class="facts"><div class="fact"><strong>Product thinking</strong><span>Start with the problem</span></div><div class="fact"><strong>Design + technology</strong><span>Build useful experiences</span></div><div class="fact"><strong>AI-assisted workflow</strong><span>Prototype and iterate</span></div><div class="fact"><strong>Based in Kenya</strong><span>Building from wherever I am</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" style="background:#f0f3fa">
+      <div class="wrap"><div class="section-head reveal"><span class="kicker">What I can help with</span><h2>Ideas made practical.</h2><p>Have a concept for a website or a digital product? I can help shape the idea, design the experience, and work toward a prototype.</p></div>
+        <div class="cards">
+          <article class="service-card reveal"><div class="service-icon">◈</div><h3>Website design & builds</h3><p>Responsive landing pages, personal portfolios, service websites, and early-stage product pages.</p><div class="tag-row"><span class="tag">Responsive</span><span class="tag">UI design</span><span class="tag">HTML/CSS/JS</span></div></article>
+          <article class="service-card reveal"><div class="service-icon">▦</div><h3>App concepts & prototypes</h3><p>Turn a rough idea into a structured user flow, interface concept, or functional early prototype.</p><div class="tag-row"><span class="tag">Product thinking</span><span class="tag">Prototyping</span></div></article>
+          <article class="service-card reveal"><div class="service-icon">✳</div><h3>AI-powered experiences</h3><p>Explore practical AI features and tools that can make a product more useful and easier to operate.</p><div class="tag-row"><span class="tag">AI tools</span><span class="tag">Automation concepts</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap"><div class="section-head reveal"><span class="kicker">Selected projects</span><h2>Experiments with a purpose.</h2><p>A selection of ideas and projects I'm exploring. Statuses are shown honestly so visitors can tell what's in development.</p></div>
+        <div class="cards">
+          <article class="project-card reveal"><div class="norio-project-visual"><img class="project-image" src="assets/norio-campaign-visual.webp" alt="Norio neon product concept artwork"><img class="norio-project-logo" src="logo.png" alt="Norio logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="norio-project-logo-fallback">NORIO</span></div><span class="project-image-label">Launch campaign concept</span><div class="project-info"><span class="project-status">In development</span><h3>Norio</h3><p>A technology project exploring useful digital products and tools. More details will be added as the work develops.</p><div class="tag-row"><span class="tag">Technology</span><span class="tag">Product development</span></div><a class="project-link" href="#contact">Ask about the project ↗</a></div></article>
+          <article class="project-card reveal"><img class="project-image" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85" alt="Laptop showing a modern web development workspace" loading="lazy" onerror="this.onerror=null;this.src='assets/website-concept.webp'"><span class="project-image-label">Website design concept</span><div class="project-info"><span class="project-status">Ongoing experiments</span><h3>Web experiences</h3><p>Small website concepts and interface experiments focused on layout, usability, responsiveness, and motion.</p><div class="tag-row"><span class="tag">Web design</span><span class="tag">Frontend</span></div><a class="project-link" href="#contact">Discuss a website ↗</a></div></article>
+          <article class="project-card reveal"><img class="project-image" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=85" alt="Artificial intelligence concept artwork with a glowing digital brain" loading="lazy" onerror="this.onerror=null;this.src='assets/ai-app-concept.webp'"><span class="project-image-label">App interface concept</span><div class="project-info"><span class="project-status">Concept stage</span><h3>Digital product concepts</h3><p>Early-stage concepts for tools that organise information, simplify workflows, or help people learn.</p><div class="tag-row"><span class="tag">Research</span><span class="tag">Product concepts</span></div><a class="project-link" href="#contact">Share an idea ↗</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" style="background:#f0f3fa"><div class="wrap"><div class="section-head reveal"><span class="kicker">Tools & capabilities</span><h2>Learning, building, improving.</h2><p>My toolkit continues to grow. These are areas I work with or actively explore.</p></div>
+      <div class="skills-grid"><div class="skill-card reveal"><strong>Website development</strong><span>HTML · CSS · JavaScript</span></div><div class="skill-card reveal"><strong>Interface design</strong><span>Layout · Visual systems · UX</span></div><div class="skill-card reveal"><strong>AI-assisted building</strong><span>Prompting · Prototyping</span></div><div class="skill-card reveal"><strong>App concepts</strong><span>Flows · Features · MVPs</span></div><div class="skill-card reveal"><strong>Databases</strong><span>Data structure · Firebase exploration</span></div><div class="skill-card reveal"><strong>Product planning</strong><span>Problem framing · Roadmaps</span></div><div class="skill-card reveal"><strong>Creative technology</strong><span>Experiments · Iteration</span></div><div class="skill-card reveal"><strong>Continuous learning</strong><span>Research · Practice · Feedback</span></div></div>
+    </div></section>
+
+    <section id="norio"><div class="wrap"><div class="norio-banner reveal">
+      <div class="norio-content">
+        <div class="norio-ad-kicker">The next chapter is loading</div>
+        <div class="norio-ad-line"></div>
+        <span class="norio-status"><span class="dot"></span> Coming soon · In development</span>
+        <img class="norio-logo" src="./logo.png" alt="Norio logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="norio-logo-fallback" style="display:none">NORIO</div>
+        <h2>Something new.<br><span style="background:linear-gradient(100deg,#53ddff,#a58aff,#ff75d1);-webkit-background-clip:text;background-clip:text;color:transparent">Something Norio.</span></h2>
+        <p>Ideas are becoming something real. Norio is in development—follow the journey for the first reveal, product updates, and what comes next.</p>
+        <a class="btn" href="https://github.com/NorioTech/" target="_blank" rel="noopener noreferrer">Follow the journey <span aria-hidden="true">↗</span></a>
+        <div class="norio-ad-footer"><span>New ideas loading</span><span>•</span><span>Built for what’s next</span></div>
+      </div>
+      <div class="norio-visual-wrap" aria-label="Animated Norio technology launch slideshow">
+        <div class="norio-slideshow" id="norioSlideshow" role="region" aria-label="Norio launch campaign slideshow">
+          <img class="norio-slide active" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85" alt="Laptop and web development workspace" fetchpriority="low">
+          <img class="norio-slide" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85" alt="Technology product concept" loading="lazy" onerror="this.remove()">
+          <img class="norio-slide" src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1400&q=85" alt="Smartphone showing a mobile app interface" loading="lazy">
+          <img class="norio-slide" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85" alt="Electronic components and digital technology" loading="lazy">
+          <div class="norio-slide-overlay"><div><div class="norio-slide-caption" id="norioSlideCaption">Digital experiences</div><span class="norio-slide-subtitle">Norio · In development</span></div><span class="norio-slide-counter" id="norioSlideCounter">01 / 04</span></div>
+        </div>
+        <div class="norio-slide-dots" id="norioSlideDots" aria-label="Choose slideshow image">
+          <button class="norio-slide-dot active" type="button" aria-label="Show slide 1" aria-pressed="true"></button><button class="norio-slide-dot" type="button" aria-label="Show slide 2" aria-pressed="false"></button><button class="norio-slide-dot" type="button" aria-label="Show slide 3" aria-pressed="false"></button><button class="norio-slide-dot" type="button" aria-label="Show slide 4" aria-pressed="false"></button>
+        </div>
+        <p class="norio-visual-note">A new digital experience is taking shape</p>
+      </div>
+    </div></div></section>
+
+    <section id="contact"><div class="wrap"><div class="contact-grid"><div class="reveal"><span class="kicker">Contact</span><h2>Have an idea?<br>Let's discuss it.</h2><p class="muted">If you need a website or want to explore a digital product idea, send a message with a short description of what you have in mind.</p>
+      <div class="contact-list"><a class="contact-item" href="mailto:lawrencewalker783@gmail.com"><span class="service-icon">✉</span><div><strong>Email</strong><span>lawrencewalker783@gmail.com</span></div></a><a class="contact-item" href="https://wa.me/254748213072" target="_blank" rel="noopener noreferrer"><span class="service-icon">◉</span><div><strong>WhatsApp</strong><span>Message to discuss a project</span></div></a></div>
+      <div class="socials" aria-label="Social media links">
+        <a class="instagram" href="https://www.instagram.com/lawrencewalker18/?hl=en" target="_blank" rel="noopener noreferrer"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg></span>Instagram <span aria-hidden="true">↗</span></a>
+        <a class="x-social" href="https://x.com/vertex_studio5" target="_blank" rel="noopener noreferrer"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.78 7.75L23.2 22h-6.25l-4.9-7.45L5.53 22H2.4l7.25-8.29L1.8 2h6.4l4.43 6.78L18.9 2Zm-1.1 18h1.73L7.28 3.9H5.42L17.8 20Z"/></svg></span>X <span aria-hidden="true">↗</span></a>
+        <a class="facebook" href="https://web.facebook.com/profile.php?id=61578152984627" target="_blank" rel="noopener noreferrer"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.76l.41-3.2H13.5V8.56c0-.93.26-1.56 1.6-1.56h1.7V4.14c-.3-.04-1.34-.14-2.55-.14-2.53 0-4.26 1.54-4.26 4.37v2.23H7.13v3.2h2.86V22h3.51Z"/></svg></span>Facebook <span aria-hidden="true">↗</span></a>
+        <a class="github" href="https://github.com/NorioTech/" target="_blank" rel="noopener noreferrer"><span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.08c-3.1.67-3.75-1.32-3.75-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.72 2.1 3.68 1.6.1-.74.39-1.25.7-1.54-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.16-2.99-.12-.28-.5-1.42.11-2.95 0 0 .95-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.1-1.43 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.16 1.77 1.16 2.99 0 4.29-2.61 5.24-5.1 5.52.4.35.75 1.03.75 2.08v3.1c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg></span>GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="contact-form contact-options reveal" aria-label="Choose a contact method">
+      <div class="form-heading"><span class="form-heading-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></span><div><h3>Choose how to reach me</h3><p>No forms to fill out. Select your preferred contact method and connect directly.</p></div></div>
+      <div class="contact-choice-grid">
+        <a class="contact-choice choice-email" href="mailto:lawrencewalker783@gmail.com"><span class="choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg></span><span class="choice-copy"><strong>Email me</strong><small>Send an email directly</small></span><span class="choice-arrow" aria-hidden="true">↗</span></a>
+        <a class="contact-choice choice-whatsapp" href="https://wa.me/254748213072" target="_blank" rel="noopener noreferrer"><span class="choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.7A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8.3 7.8c.3-.5.6-.5.9-.5h.4c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .6.4.7 1 1.3 1.7 1.7.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.8c.2.1.3.3.3.5 0 .4-.2 1-.6 1.3-.4.4-1 .6-1.6.5-1-.1-2.4-.8-3.6-1.9-1.1-1.1-1.9-2.5-2-3.5-.1-.7.1-1.4.5-1.9Z"/></svg></span><span class="choice-copy"><strong>WhatsApp</strong><small>Chat about your idea</small></span><span class="choice-arrow" aria-hidden="true">↗</span></a>
+        <a class="contact-choice choice-instagram" href="https://www.instagram.com/lawrencewalker18/?hl=en" target="_blank" rel="noopener noreferrer"><span class="choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></span><span class="choice-copy"><strong>Instagram</strong><small>Follow or send a DM</small></span><span class="choice-arrow" aria-hidden="true">↗</span></a>
+        <a class="contact-choice choice-x" href="https://x.com/vertex_studio5" target="_blank" rel="noopener noreferrer"><span class="choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 3h4.5L20 21h-4.5zM20 3 4 21"/></svg></span><span class="choice-copy"><strong>X</strong><small>Connect on X</small></span><span class="choice-arrow" aria-hidden="true">↗</span></a>
+        <a class="contact-choice choice-facebook" href="https://web.facebook.com/profile.php?id=61578152984627" target="_blank" rel="noopener noreferrer"><span class="choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 21v-8h3l.5-3H14V8c0-.9.3-1.5 1.6-1.5h2V3.8c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.3V10H8v3h3v8z"/></svg></span><span class="choice-copy"><strong>Facebook</strong><small>Visit my profile</small></span><span class="choice-arrow" aria-hidden="true">↗</span></a>
+        <a class="contact-choice choice-github" href="https://github.com/NorioTech/" target="_blank" rel="noopener noreferrer"><span class="choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.2-3.5-1.2-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1 .1 1.6 1.1 1.6 1.1 1 1.6 2.5 1.1 3.1.8.1-.7.4-1.1.7-1.4-2.3-.3-4.7-1.2-4.7-5A3.9 3.9 0 0 1 6.6 8.6c-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.9 1.1a10 10 0 0 1 5.2 0c2-1.4 2.9-1.1 2.9-1.1.6 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.8-2.4 4.7-4.7 5 .4.3.7.9.7 1.8V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg></span><span class="choice-copy"><strong>GitHub</strong><small>Explore Norio projects</small></span><span class="choice-arrow" aria-hidden="true">↗</span></a>
+      </div>
+      <p class="form-note"><span aria-hidden="true">✓</span> Choose whichever platform is easiest for you. Email opens your email app; social links open their respective platforms.</p>
+    </div>
+    </div></div></section>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><span>© <span id="year"></span> Lawrence Walker. Built with purpose.</span><span>Digital Product Builder · Kenya</span><a href="#home">Back to top ↑</a></div></footer>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navlinks = document.getElementById('navlinks');
+    menuToggle.addEventListener('click', () => {
+      const opened = navlinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(opened));
+      menuToggle.textContent = opened ? '×' : '☰';
+    });
+    navlinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navlinks.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); menuToggle.textContent='☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
+    }), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const navObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navlinks.querySelectorAll('a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      }
+    }), { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach(section => navObserver.observe(section));
+    // Norio campaign slideshow: automatic cross-fades, gentle zoom, and clickable dots.
+    (() => {
+      const gallery = document.getElementById('norioSlideshow');
+      const dotsWrap = document.getElementById('norioSlideDots');
+      if (!gallery || !dotsWrap) return;
+      const slides = [...gallery.querySelectorAll('.norio-slide')];
+      const dots = [...dotsWrap.querySelectorAll('.norio-slide-dot')];
+      const caption = document.getElementById('norioSlideCaption');
+      const counter = document.getElementById('norioSlideCounter');
+      const labels = ['Digital experiences', 'Ideas into products', 'Mobile-first thinking', 'Technology in progress'];
+      let active = 0, timer = null;
+      const validSlides = () => slides.filter(slide => slide.isConnected);
+      function showSlide(index) {
+        const available = validSlides();
+        if (!available.length) return;
+        active = ((index % available.length) + available.length) % available.length;
+        available.forEach((slide, i) => slide.classList.toggle('active', i === active));
+        dots.forEach((dot, i) => { dot.classList.toggle('active', i === active); dot.setAttribute('aria-pressed', String(i === active)); dot.hidden = i >= available.length; });
+        if (caption) caption.textContent = labels[active] || 'Norio in development';
+        if (counter) counter.textContent = String(active + 1).padStart(2, '0') + ' / ' + String(available.length).padStart(2, '0');
+      }
+      function restart() { if (timer) clearInterval(timer); timer = setInterval(() => showSlide(active + 1), 4800); }
+      dots.forEach((dot, i) => dot.addEventListener('click', () => { showSlide(i); restart(); }));
+      gallery.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); });
+      gallery.addEventListener('mouseleave', restart);
+      document.addEventListener('visibilitychange', () => { if (document.hidden) { if (timer) clearInterval(timer); } else restart(); });
+      showSlide(0); restart();
+    })();
+
+  </script>
+</body>
+</html>
